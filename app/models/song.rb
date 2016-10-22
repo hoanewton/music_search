@@ -2,8 +2,9 @@ class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :album
 
-  validates :artist, :album, presence: true
+  validates :title, :artist, :album, presence: true
 
-  def search(options={})
+  def self.search(options={})
+    Song.where(title: options[:title])
   end
 end
