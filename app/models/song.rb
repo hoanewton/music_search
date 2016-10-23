@@ -5,9 +5,14 @@ class Song < ActiveRecord::Base
   delegate :name, :to => :artist, :prefix => true
   validates :title, :artist, :album, presence: true
 
-  def self.search(options={})
-    return Song.where(title: options[:title]) unless options[:artist_name].present?
-    # song_title_result = Song.where("title like ?", "%#{options[:title]}%")
-    artist_name_result = Song.joins(:artist).where(artists: { name: options[:artist_name]}, title: options[:title])
+  def self.search(terms={})
+    filter = []
+    filter << "songs.title like '#{terms[:title]}'" if terms[:title].present?
+    filter << "artists.name like '#{terms[:artist_name]}'" if terms[:artist_name].present?
+    filter << "albums.title like '#{terms[:album_title]}'" if terms[:album_title].present?
+
+    search_query = filter.length <= 1 ? filter.flatten.join('') : filter.join('and')
+    Song.joins(:artist, :album).includes(:artist, :album).where(search_query)
   end
+
 end
