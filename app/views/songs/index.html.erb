@@ -1,83 +1,91 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">TuneCore</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
 
-  <div class="main">
-    <h1 class="w3layouts_head">Simple Task Widget</h1>
-    <div class="w3layouts_main_grid">
-      <form action="#" method="post" class="w3_form_post">
-        <div class="w3_agileits_main_grid w3l_main_grid">
-          <span class="agileits_grid">
-            <label>Task<i>:</i></label>
-            <input type="text" name="Task" placeholder="Enter your task" required="">
-          </span>
-        </div>
-        <div class="agileits_w3layouts_main_grid w3ls_main_grid">
-          <span class="agileinfo_grid">
-            <label>Date / Time<i>:</i></label>
-            <div class="agileits_w3layouts_main_gridl">
-              <input class="date" id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '08/13/2016';}" required="">
-            </div>
-            <div class="agileits_w3layouts_main_gridr">
-              <input type="time" name="Time" placeholder=" " required="">
-            </div>
-            <div class="clear"> </div>
-          </span>
-        </div>
-        <div class="agileits_main_grid w3_agileits_main_grid">
-          <span class="wthree_grid">
-            <label>Category<i>:</i></label>
-            <select id="category" name="category" required="">
-              <option value="none">None</option>
-              <option value="category1">Category1</option>
-              <option value="category2">Category2</option>
-              <option value="category3">Category3</option>
-              <option value="category4">Category4</option>
-            </select>
-          </span>
-        </div>
-        <div class="agileinfo_main_grid">
-          <span class="agileits_w3layouts_grid">
-            <label>Calender<i>:</i></label>
-            <select id="category1" name="category1" required="">
-              <option value="personal">Personal Calender</option>
-              <option value="business">Business Calender</option>
-              <option value="other">Other</option>
-            </select>
-          </span>
-        </div>
-        <div class="wthree_main_grid">
-          <span class="agile_grid">
-            <label>Priority<i>:</i></label>
-            <select id="priority" name="priority" required="">
-              <option value="high">High</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-            </select>
-          </span>
-        </div>
-        <div class="agileinfo_main_grid">
-          <span class="w3_agile_grid">
-            <label>Risk Level<i>:</i></label>
-            <select id="risk" name="risk" required="">
-              <option value="high">High</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-            </select>
-          </span>
-        </div>
-        <div class="w3_agile_main_grid">
-          <span class="agile_grid">
-            <label>Reminder<i>:</i></label>
-            <input type="text" name="Reminder" placeholder="Add reminder" required="">
-          </span>
-        </div>
-        <div class="w3_main_grid">
-          <div class="w3_main_grid_left">
-            <a href="#">Set more task options</a>
+<div class="container theme-showcase" role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <h3 class="">Search songs</h3>
+    <div class="row">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="song" class="col-sm-2 control-label">Song Title</label>
+          <div class="col-sm-10">
+            <input type="song" class="form-control" id="song-title" placeholder="Song title">
           </div>
-          <div class="w3_main_grid_right">
-            <input type="submit" value="Add Task">
+        </div>
+        <div class="form-group">
+          <label for="artist" class="col-sm-2 control-label">Artist Name</label>
+          <div class="col-sm-10">
+            <input type="artist" class="form-control" id="artist-name" placeholder="Artist Name">
           </div>
-          <div class="clear"> </div>
+        </div>
+        <div class="form-group">
+          <label for="album" class="col-sm-2 control-label">Album</label>
+          <div class="col-sm-10">
+            <input type="album" class="form-control" id="album-title" placeholder="Album Title">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10 text-right">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
         </div>
       </form>
     </div>
+
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Song</th>
+            <th>Album-Year</th>
+            <th>Artist</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+
+
+</div> <!-- /container -->
