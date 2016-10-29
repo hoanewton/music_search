@@ -1,0 +1,8 @@
+<% if song.present? %>
+  <tr>
+    <td><%=song.title%></td>
+    <td><%=song.artist.name%></td>
+    <td><%=song.album.title%></td>
+    <td><%=song.album.year%></td>
+  </tr>
+<% end %>

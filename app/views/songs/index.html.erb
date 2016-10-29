@@ -23,64 +23,58 @@
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
-    <h3 class="">Search songs</h3>
-    <div class="row">
-      <form class="form-horizontal">
-        <div class="form-group">
-          <label for="song" class="col-sm-2 control-label">Song Title</label>
-          <div class="col-sm-10">
-            <input type="song" class="form-control" id="song-title" placeholder="Song title">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="artist" class="col-sm-2 control-label">Artist Name</label>
-          <div class="col-sm-10">
-            <input type="artist" class="form-control" id="artist-name" placeholder="Artist Name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="album" class="col-sm-2 control-label">Album</label>
-          <div class="col-sm-10">
-            <input type="album" class="form-control" id="album-title" placeholder="Album Title">
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10 text-right">
-            <button type="submit" class="btn btn-primary">Search</button>
-          </div>
-        </div>
-      </form>
-    </div>
+    <h2 class="">Search songs</h2>
 
+    <div class="row">
+
+      <%= form_tag('/songs/search', method: 'GET', remote: true, :id => "search-songs-form", :class => 'form-horizontal')  do %>
+
+          <div class="">
+            <div class="form-group" id="">
+              <%= label_tag "Song title", nil, :class => "col-sm-2 control-label", :for => "song_title" %>
+              <div class="col-sm-10">
+                <%= text_field_tag :title, nil, :size => 40, :class => "form-control pull-left", :placeholder => "Get back" %>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="form-group" id="">
+              <%= label_tag "Artist", nil, :class => "col-sm-2 control-label", :for => "artist_name" %>
+              <div class="col-sm-10">
+                <%= text_field_tag :artist_name, nil, :size => 40, :class => "form-control pull-left", :placeholder => "The Beatles" %>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="form-group" id="">
+              <%= label_tag "Album", nil, :class => "col-sm-2 control-label", :for => "album_title" %>
+              <div class="col-sm-10">
+                <%= text_field_tag :album_title, nil, :size => 40, :class => "form-control pull-left", :placeholder => "Let it be" %>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+
+            <div class="row buttons">
+              <div class="col-sm-12 text-right">
+                <%= submit_tag "Search", :class => "btn btn-primary btn-default", :id => "submit-search" %>
+              </div>
+            </div>       
+          </div>
+      <% end %>
+
+      <br>
+      <br>
+      <br>
     <div class="row">
       <table class="table">
         <thead>
           <tr>
-            <th>#</th>
             <th>Song</th>
-            <th>Album-Year</th>
             <th>Artist</th>
+            <th>Album</th>
+            <th>Year</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+        <tbody id="search-results">
+          <%= render 'search_result_table_row' %>
         </tbody>
       </table>
     </div>
