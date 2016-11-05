@@ -51,15 +51,21 @@
               </div>
             </div>
 
-            <div class="row buttons">
-              <div class="col-sm-12 text-right">
+            <div class="row buttons">  
+              <div class="col-sm-10 text-right">
                 <%= submit_tag "Search", :class => "btn btn-primary btn-default", :id => "submit-search" %>
+              </div>
+              <div class="col-sm-2 text-right">
+                <button class='btn btn-secondary btn-default' id='clear-form-btn' >
+                  Clear
+                </button>
               </div>
             </div>       
           </div>
       <% end %>
       <br>
   </div>
+
   <div class="row">
     <table class="table">
       <thead>
