@@ -32,21 +32,21 @@
             <div class="form-group" id="">
               <%= label_tag "Song title", nil, :class => "col-sm-2 control-label", :for => "song_title" %>
               <div class="col-sm-10">
-                <%= text_field_tag :title, nil, :size => 40, :class => "form-control pull-left", :placeholder => "Get back" %>
+                <%= text_field_tag "search[songs_title]", nil, :size => 40, :class => "form-control pull-left", :placeholder => "Get back" %>
                 <div class="clearfix"></div>
               </div>
             </div>
             <div class="form-group" id="">
               <%= label_tag "Artist", nil, :class => "col-sm-2 control-label", :for => "artist_name" %>
               <div class="col-sm-10">
-                <%= text_field_tag :artist_name, nil, :size => 40, :class => "form-control pull-left", :placeholder => "The Beatles" %>
+                <%= text_field_tag "search[artists_name]", nil, :size => 40, :class => "form-control pull-left", :placeholder => "The Beatles" %>
                 <div class="clearfix"></div>
               </div>
             </div>
             <div class="form-group" id="">
               <%= label_tag "Album", nil, :class => "col-sm-2 control-label", :for => "album_title" %>
               <div class="col-sm-10">
-                <%= text_field_tag :album_title, nil, :size => 40, :class => "form-control pull-left", :placeholder => "Let it be" %>
+                <%= text_field_tag "search[albums_title]", nil, :size => 40, :class => "form-control pull-left", :placeholder => "Let it be" %>
                 <div class="clearfix"></div>
               </div>
             </div>

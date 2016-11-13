@@ -1,5 +1,5 @@
 <% if @songs.present? %>
-  <% @songs.includes(:artist, :album).each do |song| %>
+  <% @songs.each do |song| %>
     <%= render 'song_row', song: song %>
   <% end %>
 <% end %>

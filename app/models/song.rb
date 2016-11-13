@@ -7,13 +7,17 @@ class Song < ActiveRecord::Base
 
   def self.search(terms={})
     filter = []
-    filter << "songs.title like '%#{terms[:title].squish}%'" if terms[:title].present?
-    filter << "artists.name like '%#{terms[:artist_name].squish}%'" if terms[:artist_name].present?
-    filter << "albums.title like '%#{terms[:album_title].squish}%'" if terms[:album_title].present?
-    search_query = filter.length <= 1 ? filter.flatten.join('') : filter.join(' and ')
-puts "SEARCH TERMS: #{terms}, FILTER: #{filter}, QUERY: #{search_query}" 
+    associations = []
 
-    Song.joins(:artist, :album).includes(:artist, :album).where(search_query)
+    terms[:search].each do |k,v|
+      term = k.sub('_', '.')
+      filter << term + ' ' + 'like' + ' ' + "'%#{v}%'"
+      associations << k.split('_')[0].singularize.to_sym unless k == 'songs_title'
+    end 
+    
+    search_query = filter.length <= 1 ? filter.flatten.join('') : filter.join(' and ')
+    Song.joins(associations.flatten).includes(associations.flatten).where(search_query)
   end
+
 
 end
