@@ -8,7 +8,6 @@ class Song < ActiveRecord::Base
   def self.search(terms={})
     filter = []
     associations = []
-
     terms[:search].each do |k,v|
       term = k.sub('_', '.')
       filter << term + ' ' + 'like' + ' ' + "'%#{v}%'"
